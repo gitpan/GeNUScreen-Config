@@ -1,0 +1,17 @@
+Revision history for GeNUScreen-Config
+
+0.0.5  Fr 30. Apr 14:47:33 CEST 2010
+	- Module GeNUScreen::Config::Diff holding differences between
+	  two configs
+	- GeNUScreen::Config can parse either webexports or config.hdf
+	- Script genuscreen-config can compare two config files
+	- more tests
+
+0.0.3  Mo 12. Apr 23:00:09 CEST 2010
+       - Methods read_webexport(), get_keys(), get_value() work
+       - command line script genuscreen-config uses these to print
+	 configuration
+
+0.0.1  Fri Apr  9 14:00:41 2010
+       Initial release.
+

@@ -1,5 +1,10 @@
 Revision history for GeNUScreen-Config
 
+0.0.6  Fr 18. Jun 11:32:09 CEST 2010
+	- Build.PL: create a Makefile.PL automatically so that
+	  prerequisites mentioned in Build.PL get automatically
+	  transfered to Makefile.PL
+
 0.0.5  Fr 30. Apr 14:47:33 CEST 2010
 	- Module GeNUScreen::Config::Diff holding differences between
 	  two configs

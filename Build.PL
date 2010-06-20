@@ -1,3 +1,5 @@
+# vim: set ts=4 sw=4 tw=78 et si:
+use 5.006;
 use strict;
 use warnings;
 use Module::Build;
@@ -14,8 +16,10 @@ my $builder = Module::Build->new(
 	'Class::Std' => 0,
         'Test::More' => 0,
         'version'    => 0,
+        # Perls prior to 5.6 don't support the three-argument form of open.
+        'perl'	     => '5.6.0',
     },
-    script_files	=> [ 'genuscreen-config' ],
+    script_files	=> [ 'scripts/genuscreen-config' ],
 );
 
 $builder->create_build_script();

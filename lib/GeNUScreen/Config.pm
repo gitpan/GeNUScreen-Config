@@ -7,7 +7,7 @@ use strict;
 use Carp;
 use GeNUScreen::Config::Diff;
 
-use version; our $VERSION = qv('0.0.6');
+use version; our $VERSION = qv('0.0.7');
 
 my $re_cfgval  = qr/\S.*/;
 my $re_cfgvar  = qr/[0-9a-z_]+/i;
@@ -28,7 +28,7 @@ use Class::Std;
     sub read_config {
         my ($self,$filename) = @_;
 
-        my $gs_cfg = {};
+        my %gs_cfg;
         my $prefix = '';
 
         open my $fh, '<', $filename
@@ -37,7 +37,7 @@ use Class::Std;
         while (<$fh>) {
             chomp;
             if (/^\s*($re_cfgpath)\s*=\s*($re_cfgval)?$/) {
-                $gs_cfg->{$prefix . $1} = $2;
+                $gs_cfg{$prefix . $1} = $2;
             }
             elsif (/^\s*($re_cfgpath)\s*<<\s*($re_marker)$/) {
                 my $cfgpath = $1;
@@ -47,7 +47,7 @@ use Class::Std;
                     last if (/^$marker$/);
                     $cfgval .= $_;
                 }
-                $gs_cfg->{$prefix . $cfgpath} = $cfgval;
+                $gs_cfg{$prefix . $cfgpath} = $cfgval;
             }
             elsif (/^\s*($re_cfgvar)\s*\{\s*$/) {
                 $prefix .= $1 . ".";
@@ -62,7 +62,7 @@ use Class::Std;
                       . " line $. in file $filename: '$_'");
             }
         }
-        $cfg{ident $self} = $gs_cfg;
+        $cfg{ident $self} = \%gs_cfg;
         close $fh;
     } # read_config()
 

@@ -7,11 +7,12 @@ use GeNUScreen::Config;
 use Getopt::Long;
 use Pod::Usage;
 
-my $opt = {};
+my %opt;
 
-GetOptions($opt,'config|cfg=s', 'man');
+GetOptions(\%opt,'config|cfg=s', 'help', 'man');
 
-pod2usage(-verbose => 2, -input => \*DATA) if $opt->{man};
+pod2usage(-exitstatus => 0, -input => \*DATA)                if $opt{help};
+pod2usage(-exitstatus => 0, -verbose => 2, -input => \*DATA) if $opt{man};
 
 my $cmd = shift;
 
@@ -19,7 +20,7 @@ pod2usage(0) unless $cmd;
 
 my $cfg = GeNUScreen::Config->new();
 
-$cfg->read_config($opt->{config}) if $opt->{config};
+$cfg->read_config($opt{config}) if $opt{config};
 
 if ($cmd =~ /^print$/i) {
     foreach my $key (sort $cfg->get_keys()) {

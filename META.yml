@@ -1,6 +1,6 @@
 ---
 name: GeNUScreen-Config
-version: 0.0.6
+version: 0.0.7
 author:
   - 'Mathias Weidner <mamawe@cpan.org>'
 abstract: Work with config files for GeNUScreen firewalls
@@ -10,11 +10,12 @@ resources:
 requires:
   Class::Std: 0
   Test::More: 0
+  perl: 5.6.0
   version: 0
 provides:
   GeNUScreen::Config:
     file: lib/GeNUScreen/Config.pm
-    version: 0.0.6
+    version: 0.0.7
   GeNUScreen::Config::Diff:
     file: lib/GeNUScreen/Config/Diff.pm
 generated_by: Module::Build version 0.2808

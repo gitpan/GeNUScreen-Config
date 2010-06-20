@@ -25,7 +25,7 @@ use Class::Std;
     sub compare {
         my ($self,$this,$that) = @_;
 
-        my $d = {};
+        my %d;
         my %all_keys = ();
 
         foreach my $k ($this->get_keys()) {$all_keys{$k} = 1};
@@ -39,11 +39,11 @@ use Class::Std;
                     or (defined $thisval and defined $thatval
                         and $thisval eq $thatval)
                    ) {
-                $d->{$k}->{this} = $thisval;
-                $d->{$k}->{that} = $thatval;
+                $d{$k}->{this} = $thisval;
+                $d{$k}->{that} = $thatval;
             }
         }
-        $diff{ident $self} = $d;
+        $diff{ident $self} = \%d;
     } # compare()
 
     sub get_keys {

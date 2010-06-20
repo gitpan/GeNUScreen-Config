@@ -6,7 +6,7 @@ WriteMakefile
           'INSTALLDIRS' => 'site',
           'NAME' => 'GeNUScreen::Config',
           'EXE_FILES' => [
-                           'genuscreen-config'
+                           'scripts/genuscreen-config'
                          ],
           'VERSION_FROM' => 'lib/GeNUScreen/Config.pm',
           'PREREQ_PM' => {

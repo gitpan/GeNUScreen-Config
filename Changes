@@ -1,5 +1,11 @@
 Revision history for GeNUScreen-Config
 
+0.0.7  So 20. Jun 21:47:31 CEST 2010
+	- tests for script genuscreen-config
+	- use 5.006 (Perls prior to 5.6 don't support the three-argument
+	  form of open)
+	- minor tweaks for Perl::Critic
+
 0.0.6  Fr 18. Jun 11:32:09 CEST 2010
 	- Build.PL: create a Makefile.PL automatically so that
 	  prerequisites mentioned in Build.PL get automatically

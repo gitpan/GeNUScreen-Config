@@ -1,5 +1,11 @@
 Revision history for GeNUScreen-Config
 
+0.0.8  Mo 21. Jun 22:03:36 CEST 2010
+	- renamed script genuscreen-config to genuscreen-config.pl
+	- use Probe::Perl to find Perl interpreter to test script
+	- generate Makefile.PL as 'passthrough', hoping to get rid of
+	  perlcritic error regarding Perls prior to 5.6
+
 0.0.7  So 20. Jun 21:47:31 CEST 2010
 	- tests for script genuscreen-config
 	- use 5.006 (Perls prior to 5.6 don't support the three-argument

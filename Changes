@@ -1,5 +1,9 @@
 Revision history for GeNUScreen-Config
 
+0.0.9  Di 22. Jun 22:08:18 CEST 2010
+	- deactivate Test::Perl::Critic unless $ENV{TEST_AUTHOR} is set
+	  to a true value
+
 0.0.8  Mo 21. Jun 22:03:36 CEST 2010
 	- renamed script genuscreen-config to genuscreen-config.pl
 	- use Probe::Perl to find Perl interpreter to test script

@@ -1,5 +1,12 @@
 Revision history for GeNUScreen-Config
 
+0.0.10 Do 24. Jun 21:41:00 CEST 2010
+	- scripts/genuscreen-config.pl: If no option -config is given and
+	  there is a file named 'config.hdf' in the current working
+	  directory, this is taken as configuration file for all commands.
+	- t/script-genuscreen-config.t: Don't use the list form of pipe
+	  open.
+
 0.0.9  Di 22. Jun 22:08:18 CEST 2010
 	- deactivate Test::Perl::Critic unless $ENV{TEST_AUTHOR} is set
 	  to a true value

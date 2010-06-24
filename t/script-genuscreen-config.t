@@ -20,7 +20,10 @@ my ($pipe,@out,@args);
 # this configuration should have 324 lines if printed
 #
 @args = qw(-config t/data/config.hdf print);
-open $pipe, '-|', $perl, $script, @args;
+#
+# On MSWin32: List form of pipe open not implemented
+#
+open($pipe, join(' ', $perl, $script, @args, '|'));
 @out = <$pipe>;
 close $pipe;
 is(scalar(@out),324,"number of config lines printed");
@@ -28,7 +31,7 @@ is(scalar(@out),324,"number of config lines printed");
 # those configurations should be equal
 #
 @args = qw(-config t/data/config.hdf diff t/data/example.cfg);
-open $pipe, '-|', $perl, $script, @args;
+open($pipe, join(' ', $perl, $script, @args, '|'));
 @out = <$pipe>;
 close $pipe;
 like($out[0],qr/configurations are equal/,"compare configs");

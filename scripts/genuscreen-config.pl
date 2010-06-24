@@ -9,6 +9,8 @@ use Pod::Usage;
 
 my %opt;
 
+my $defaultcfg = 'config.hdf'; # default file unless --config given
+
 GetOptions(\%opt,'config|cfg=s', 'help', 'man');
 
 pod2usage(-exitstatus => 0, -input => \*DATA)                if $opt{help};
@@ -20,7 +22,12 @@ pod2usage(0) unless $cmd;
 
 my $cfg = GeNUScreen::Config->new();
 
-$cfg->read_config($opt{config}) if $opt{config};
+if ($opt{config}) {
+    $cfg->read_config($opt{config});
+}
+elsif (-r $defaultcfg) {
+    $cfg->read_config($defaultcfg);
+}
 
 if ($cmd =~ /^print$/i) {
     foreach my $key (sort $cfg->get_keys()) {
@@ -85,6 +92,15 @@ This document describes genuscreen-config version 0.0.1
 =head1 DESCRIPTION
 
 =head1 OPTIONS AND ARGUMENTS
+
+=head2 Options
+
+=head3 -config filename
+
+Use the configuration file I<filename> for all commands.
+
+If no option C<-config> was given and there is a file named I<config.hdf> in
+the working directory, this is taken instead.
 
 =head2 Commands
 

@@ -7,7 +7,7 @@ use strict;
 use Carp;
 use GeNUScreen::Config::Diff;
 
-use version; our $VERSION = qv('0.0.9');
+use version; our $VERSION = qv('0.0.10');
 
 my $re_cfgval  = qr/\S.*/;
 my $re_cfgvar  = qr/[0-9a-z_]+/i;
